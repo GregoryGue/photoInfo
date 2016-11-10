@@ -1,0 +1,43 @@
+
+
+ <!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="./exif.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<!-- <script src="js/jquery.min.js"></script> -->
+<script src="js/bootstrap.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="container">
+      <input id="file-input" class="btn btn-lg btn-primary btn-block" type="file" />
+      <p>
+        <span id="text">text</span>
+      </p>
+</div>
+
+
+
+ <script>
+
+       document.getElementById("file-input").onchange = function(e) {
+          EXIF.getData(e.target.files[0], function() {
+
+              var imginfo = [];
+              imginfo = EXIF.pretty(this);
+
+              alert(imginfo);
+              <!-- alert(EXIF.pretty(this)); -->
+              });
+          }
+
+</script>
+
+
+
+</body>
+</html>
+Contact GitHub
